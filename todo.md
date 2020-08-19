@@ -11,7 +11,7 @@ Pages:
   Components:
 
 - Card (users) => Ricardo - 5
-- Form(cardPage-feedback/ Modal) => Luis - 5
+- Form(cardPage-feedback/ Modal/ 5 stars when grading) => Luis - 5
 - Autenticator(rotas/localStorage) => Ricardo - 1
 - Menu(antd style/Inside Autenticator) => Luis -3
 
