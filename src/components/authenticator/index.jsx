@@ -1,22 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { Switch, Route, useHistory } from "react-router-dom";
+import Login from "../../pages/login/Login.jsx";
 
 function Authenticator() {
-  const [isAuth, setAuth] = useState(undefined);
+  const [isAuth, setAuth] = useState(false);
   let history = useHistory();
 
-  useEffect(() => {
-    console.log(isAuth);
-  }, isAuth);
+  useEffect(() => {}, isAuth);
 
   switch (isAuth) {
     case undefined:
-      return <div>Loading</div>;
+      return <div>Loading...</div>;
     case false:
       return (
         <Switch>
           <Route exact path="/">
-            <div>Login</div>;
+            <Login />
           </Route>
           <Route exact path="/cadastro">
             <div>Cadastro</div>;
@@ -25,19 +24,7 @@ function Authenticator() {
       );
 
     case true:
-      return (
-        <Switch>
-          <Route exact path="users">
-            <div>Logged in</div>;
-          </Route>
-          <Route exact path="/perfil">
-            <div>Perfil</div>;
-          </Route>
-          <Route exact path="/">
-            <div>Users</div>;
-          </Route>
-        </Switch>
-      );
+      return <div>Menu</div>;
   }
 }
 
