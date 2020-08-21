@@ -4,7 +4,8 @@ Pages:
 - Cadastro (nome, avatar, email, user, password, passwordconfirmation) => Luis -2
   (Sem nenhum menu)
   ///////////////
-- Perfil (about editing, selecionar avator) => Ricardo - 3
+- Perfil (card) => Ricardo - 3
+- Modal (editing bio, image) => Ricardo
 - Users(cards) => Ricardo - 4
 - CardPage(perfil lateral/feedback - from clicking on card) => Luis - 4
 
@@ -20,3 +21,14 @@ Logic:
 - Validation (Hook Form) => Luis - 5
 - Api requests => Ricardo - 2
 - Pagination => Ricardo - 6
+
+data:
+about: "about"
+address: "Rua dos Alfeneiros, nº4"
+cellphone: "41 98888-1111"
+cpf: "111.111.111-11"
+email: "test200@test.com"
+id: 497
+image_url: "http://image.com.br/img.gif"
+name: "name"
+user: "user200"
