@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Switch, Route, useHistory } from "react-router-dom";
 import Login from "../../pages/login/Login.jsx";
+import Register from "../../pages/register/Register.jsx";
 import Api from "../../services/api.js";
 import Perfil from "../../pages/perfil/Perfil.jsx";
 
@@ -25,7 +26,7 @@ function Authenticator() {
   }, [history, setAuth]);
 
   switch (isAuth) {
-    case undefined:
+    default:
       return <div>Loading...</div>;
     case false:
       return (
@@ -34,7 +35,7 @@ function Authenticator() {
             <Login setAuth={setAuth} />
           </Route>
           <Route exact path="/cadastro">
-            <div>Cadastro</div>;
+            <Register />
           </Route>
         </Switch>
       );

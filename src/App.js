@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import Authenticator from "./components/authenticator";
+import Authenticator from "./components/authenticator/Authenticator";
 
 function App() {
   return (

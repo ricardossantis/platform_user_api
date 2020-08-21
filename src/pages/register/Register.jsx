@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+// import "./Login.css";
+
 import WaveImg from "../../assets/images/wave.png";
-import { useHistory } from "react-router-dom";
-import Goals from "../../assets/images/undraw_shared_goals_3d12.svg";
+import Celebration from "../../assets/images/undraw_celebration_0jvk.svg";
 import ProfIcon from "../../assets/images/undraw_profile_pic_ic5t.png";
 import api from "../../services/api";
 
@@ -16,21 +17,15 @@ import {
   H2Form,
   StyledButton,
   LinkA,
-} from "./Login";
+} from "./Register";
 import StylezedInput from "../../components/input/Input.jsx";
 
-const Login = ({ setAuth }) => {
-  let history = useHistory();
-
+const Register = () => {
   const onFinish = (values) => {
-    console.log(values);
     api
       .post("authenticate", values)
       .then((res) => {
-        window.localStorage.setItem("id", res.data.user.id);
         window.localStorage.setItem("authToken", res.data.auth_token);
-        history.push("/users");
-        setAuth(true);
       })
       .catch((res) => {});
   };
@@ -40,31 +35,45 @@ const Login = ({ setAuth }) => {
       <Wave src={WaveImg} alt="" />
       <Container>
         <BoxImg>
-          <ImgGoals src={Goals} alt="" />
+          <ImgGoals src={Celebration} alt="" />
         </BoxImg>
         <LoginContainer>
           <StyledForm onFinish={onFinish}>
-            <Avatar c src={ProfIcon} alt="" />
-            <H2Form color={"blue"}>Welcome</H2Form>
-            {/* InputContainer*/}
+            <Avatar src={ProfIcon} alt="" />
+            <H2Form>Join us!</H2Form>
+            <StylezedInput
+              icon="fas fa-user"
+              name="name"
+              label="Name"
+              type="text"
+            />
             <StylezedInput
               icon="fas fa-user"
               name="user"
               label="Username"
               type="text"
             />
-
-            {/* InputContainer*/}
+            <StylezedInput
+              icon="fas fa-lock"
+              name="email"
+              label="Email"
+              type="text"
+            />
             <StylezedInput
               icon="fas fa-lock"
               name="password"
               label="Password"
               type="password"
             />
-
+            <StylezedInput
+              icon="fas fa-lock"
+              name="confirmPassword"
+              label="Confirm password"
+              type="password"
+            />
             <LinkA href="#">Forgot Password ?</LinkA>
             <StyledButton type="submit" htmlType="submit">
-              Login
+              Register
             </StyledButton>
           </StyledForm>
         </LoginContainer>
@@ -73,4 +82,10 @@ const Login = ({ setAuth }) => {
   );
 };
 
-export default Login;
+export default Register;
+
+// name: "name"
+// user: "user200"
+// about: "about"
+// address: "Rua dos Alfeneiros, nº4"
+// email: "test200@test.com"
