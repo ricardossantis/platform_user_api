@@ -1,18 +1,22 @@
 import React, { useState } from "react";
 import "./Login.css";
-
+import { useHistory } from "react-router-dom";
 import Wave from "../../assets/images/wave.png";
 import Goals from "../../assets/images/undraw_shared_goals_3d12.svg";
 import ProfIcon from "../../assets/images/undraw_profile_pic_ic5t.png";
 import { Form, Input, Button } from "antd";
 import api from "../../services/api";
 
-const Login = () => {
+const Login = ({ setAuth }) => {
+  let history = useHistory();
   const onFinish = (values) => {
     api
       .post("authenticate", values)
       .then((res) => {
+        window.localStorage.setItem("id", res.data.user.id);
         window.localStorage.setItem("authToken", res.data.auth_token);
+        history.push("/users");
+        setAuth(true);
       })
       .catch((res) => {});
   };
