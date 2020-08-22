@@ -1,25 +1,24 @@
 import styled from "styled-components";
-import { Row } from "antd";
 import { Pagination } from "antd";
 
 export const BackGround = styled.div`
   width: 100%;
-  height: inherit;
+  height: 100%;
   background: linear-gradient(
     var(--color-primary-lighter),
     var(--color-primary-dark)
   );
- 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
-export const StyledRow = styled(Row)`
-  justify-content: space-around;
-  padding: 25px 0;
+export const StyledDiv = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 `;
 
 export const StyledPagination = styled(Pagination)`
-  position: absolute;
-  bottom: 50px;
-  left: 50%;
-  transform: translate(-50%);
+  align-self: center;
 `;
