@@ -17,6 +17,7 @@ export const StyledDiv = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin: 50px 0;
 `;
 
 export const StyledPagination = styled(Pagination)`
