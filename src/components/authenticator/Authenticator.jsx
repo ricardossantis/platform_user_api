@@ -4,6 +4,7 @@ import Login from "../../pages/login/Login.jsx";
 import Register from "../../pages/register/Register.jsx";
 import Api from "../../services/api.js";
 import Perfil from "../../pages/perfil/Perfil.jsx";
+import Users from "../../pages/users/Users.jsx";
 
 function Authenticator() {
   const [isAuth, setAuth] = useState(undefined);
@@ -18,7 +19,6 @@ function Authenticator() {
     Api.get("users", { headers: { Authorization: token } })
       .then(() => {
         setAuth(true);
-        history.push("/users");
       })
       .catch(() => {
         setAuth(false);
@@ -43,7 +43,13 @@ function Authenticator() {
     case true:
       return (
         <Switch>
+          <Route exact path="/">
+            <Login />
+          </Route>
           <Route exact path="/users">
+            <Users />
+          </Route>
+          <Route exact path="/profile">
             <Perfil />
           </Route>
         </Switch>

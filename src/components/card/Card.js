@@ -2,26 +2,15 @@ import styled from "styled-components";
 import { Card } from "antd";
 const { Meta } = Card;
 
-export const BackGround = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 100vh;
-  background: linear-gradient(
-    var(--color-primary-lighter),
-    var(--color-primary-dark)
-  );
-`;
-
 export const CardBox = styled(Card)`
-  width: 600px;
+  width: 250px;
+  margin: 10px 0;
   border: none;
 `;
 
 export const ProfileMeta = styled(Meta)`
-  margin: 5px 0;
-  padding-bottom: 10px;
+  margin: 2px 0;
+  padding-bottom: 5px;
   border-bottom: 1px dashed var(--color-primary-dark);
   .ant-card-meta-description {
     color: var(--color-text);
@@ -32,13 +21,13 @@ export const ProfileMeta = styled(Meta)`
   .ant-card-meta-title {
     text-align: center;
     font-weight: bold;
-    font-size: 30px;
+    font-size: 20px;
   }
 `;
 
 export const BorderDiv = styled.div`
-  width: 850px;
-  height: 90%;
+  width: 320px;
+  height: fit-content;
   border-radius: 15%;
   background-color: white;
   display: flex;
