@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { EditOutlined } from "@ant-design/icons";
 import "antd/dist/antd.css";
-import { CardBox, ProfileMeta, BackGround } from "./Perfil.js";
+import { CardBox, ProfileMeta, BackGround, BorderDiv } from "./Perfil.js";
 import ProfIcon from "../../assets/images/undraw_profile_pic_ic5t.png";
 import Api from "../../services/api.js";
 
@@ -35,30 +35,32 @@ function Perfil() {
 
   return (
     <BackGround>
-      <CardBox
-        cover={<img alt="example" src={ProfIcon} />}
-        actions={[<EditOutlined key="edit" onClick={handleEdit} />]}
-      >
-        <ProfileMeta
-          title={profileData.name}
-          description={`Bio: ${profileData.about}`}
-        />
+      <BorderDiv>
+        <CardBox
+          cover={<img alt="example" src={ProfIcon} />}
+          actions={[<EditOutlined key="edit" onClick={handleEdit} />]}
+        >
+          <ProfileMeta
+            title={profileData.name}
+            description={`Bio: ${profileData.about}`}
+          />
 
-        <ProfileMeta
-          avatar={<i className="fas fa-user" />}
-          description={profileData.user}
-        />
+          <ProfileMeta
+            avatar={<i className="fas fa-user" />}
+            description={profileData.user}
+          />
 
-        <ProfileMeta
-          avatar={<i className="fas fa-envelope-open-text"></i>}
-          description={profileData.email}
-        />
+          <ProfileMeta
+            avatar={<i className="fas fa-envelope-open-text"></i>}
+            description={profileData.email}
+          />
 
-        <ProfileMeta
-          avatar={<i className="fas fa-map-marker-alt"></i>}
-          description={profileData.address}
-        />
-      </CardBox>
+          <ProfileMeta
+            avatar={<i className="fas fa-map-marker-alt"></i>}
+            description={profileData.address}
+          />
+        </CardBox>
+      </BorderDiv>
     </BackGround>
   );
 }
