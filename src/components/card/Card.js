@@ -3,7 +3,7 @@ import { Card } from "antd";
 const { Meta } = Card;
 
 export const CardBox = styled(Card)`
-  width: 250px;
+  width: 80%;
   margin: 10px 0;
   border: none;
 `;
@@ -26,7 +26,7 @@ export const ProfileMeta = styled(Meta)`
 `;
 
 export const BorderDiv = styled.div`
-  width: 320px;
+  width: 50%;
   height: fit-content;
   border-radius: 15%;
   background-color: white;
