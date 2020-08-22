@@ -6,8 +6,8 @@ export const BackGround = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background: linear-gradient(
     var(--color-primary-lighter),
     var(--color-primary-dark)

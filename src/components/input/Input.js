@@ -49,7 +49,7 @@ export const Icon = styled.i`
 `
 export const H5Form = styled.h5`
 position: absolute;
-  left: px;
+  left: 0;
   top: 20%;
   color: #999;
   font-size: 18px;
@@ -83,4 +83,11 @@ position: absolute;
   font-size: 1.2rem;
   font-family: "Poppins", sans-serif;
   color: #555;
+
+  &:focus{
+    border:none;
+    outline: none;
+  background: none;
+
+  }
 `

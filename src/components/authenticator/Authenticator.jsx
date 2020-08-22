@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Switch, Route, useHistory } from "react-router-dom";
+import { Switch, Route, useHistory, Redirect } from "react-router-dom";
 import Login from "../../pages/login/Login.jsx";
 import Register from "../../pages/register/Register.jsx";
 import Api from "../../services/api.js";
 import Perfil from "../../pages/perfil/Perfil.jsx";
 import Users from "../../pages/users/Users.jsx";
+import LayoutMenu from "../layoutMenu/LayoutMenu.jsx";
 
 function Authenticator() {
   const [isAuth, setAuth] = useState(undefined);
@@ -42,17 +43,19 @@ function Authenticator() {
 
     case true:
       return (
-        <Switch>
-          <Route exact path="/">
-            <Login />
-          </Route>
-          <Route exact path="/users">
-            <Users />
-          </Route>
-          <Route exact path="/profile">
-            <Perfil />
-          </Route>
-        </Switch>
+        <LayoutMenu>
+          <Switch>
+            <Route exact path="/">
+              <Redirect to="/users" />
+            </Route>
+            <Route exact path="/users">
+              <Users />
+            </Route>
+            <Route exact path="/profile">
+              <Perfil />
+            </Route>
+          </Switch>
+        </LayoutMenu>
       );
   }
 }
