@@ -63,7 +63,7 @@ const LayoutMenu = ({ children }) => {
               }
             )}
           </Header>
-          <Content className="site-layout-background">{children}</Content>
+          <StyledContent>{children}</StyledContent>
         </Layout>
       </Layout>
     </div>
@@ -83,4 +83,8 @@ const ProfileDiv = styled.div`
 
 const StyledSider = styled(Sider)`
   background-color: var(--color-primary);
+`;
+
+const StyledContent = styled.div`
+  min-height: 100%;
 `;

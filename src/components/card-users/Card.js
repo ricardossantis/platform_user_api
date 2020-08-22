@@ -26,14 +26,14 @@ export const ProfileMeta = styled(Meta)`
 `;
 
 export const BorderDiv = styled.div`
-  width: 50%;
+  width: 250px;
   height: fit-content;
   border-radius: 15%;
   background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 10px 0;
+  margin: 10px 50px;
   -webkit-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
   -moz-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
   box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
