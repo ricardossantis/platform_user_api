@@ -113,32 +113,32 @@ function Perfil() {
 
   return (
     <BackGround>
-      <BorderDiv>
-        <CardBox
-          cover={<img alt="example" src={ProfIcon} />}
-          actions={[<EditOutlined key="edit" onClick={showModal} />]}
-        >
-          <ProfileMeta
-            title={profileData.name}
-            description={`Bio: ${profileData.about}`}
-          />
+      <CardBox
+        cover={<img alt="example" src={ProfIcon} />}
+        actions={[<EditOutlined key="edit" onClick={showModal} />]}
+      >
+        <ProfileMeta
+          style={{ marginBottom: "50px" }}
+          title={profileData.name}
+          description={profileData.about}
+        />
 
-          <ProfileMeta
-            avatar={<i className="fas fa-user" />}
-            description={profileData.user}
-          />
+        <ProfileMeta
+          avatar={<i className="fas fa-user" />}
+          description={profileData.user}
+        />
 
-          <ProfileMeta
-            avatar={<i className="fas fa-envelope-open-text"></i>}
-            description={profileData.email}
-          />
+        <ProfileMeta
+          avatar={<i className="fas fa-envelope-open-text"></i>}
+          description={profileData.email}
+        />
 
-          <ProfileMeta
-            avatar={<i className="fas fa-map-marker-alt"></i>}
-            description={profileData.address}
-          />
-        </CardBox>
-      </BorderDiv>
+        <ProfileMeta
+          avatar={<i className="fas fa-map-marker-alt"></i>}
+          description={profileData.address}
+        />
+      </CardBox>
+
       <StyledModal visible={visible} onCancel={handleCancel} footer="">
         <LoginContainer>
           <StyledForm onFinish={onFinish}>

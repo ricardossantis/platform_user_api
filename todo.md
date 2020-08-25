@@ -1,26 +1,26 @@
 Pages:
 
-- Login => Luis -1
-- Cadastro (nome, avatar, email, user, password, passwordconfirmation) => Luis -2
+- Login => Luis -1 FEITO - PROBLEMA COM ANTD CSS
+- Cadastro (nome, avatar, email, user, password, passwordconfirmation) => Luis -2 FEITO - PROBLEMA COM ANTD CSS
   (Sem nenhum menu)
   ///////////////
-- Perfil (card) => Ricardo - 3
-- Modal (name, editing bio, image) => Ricardo
-- Users(cards) => Ricardo - 4
-- CardPage(perfil lateral/feedback - from clicking on card) => Luis - 4 - depois de refazer o card
+- Perfil (card) => Ricardo - 3 FEITO
+- Modal (editing bio, image) => Ricardo - Feito
+- Users(cards) => Ricardo - 4 FEITO
+- CardPage(perfil lateral/feedback - from clicking on card) => Luis - 4
 
   Components:
 
-- Card (users) => Ricardo - 5
-- Form(cardPage-feedback/ Modal/ 5 stars when grading) => Luis - 5
-- Autenticator(rotas/localStorage) => Ricardo - 1
-- Menu(antd style/Inside Autenticator) => Luis -3 falta estilizar de acordo <-->
+- Card (users) => Ricardo - 5 FEITO
+- Form(cardPage-feedback/ Modal/USAR O GRADE) => LUIS - 5 - ACORRE QUANDO CLICAR EM UM CARD, E BOTÃO MY FEEDBACKS
+- Autenticator(rotas/localStorage) => Ricardo - 1 ALGUMAS COISAS
+- Menu(antd style/Inside Autenticator) => Luis -3 falta estilizar de acordo <--> cinza
 
 Logic:
 
 - Validation (Hook Form) => Luis - 5
-- Api requests => Ricardo - 2
-- Pagination => Ricardo - 6
+- Api requests => Ricardo - 2 FEITO - ALGUMAS COISAS
+- Pagination => Ricardo - 6 FEITO
 
 data:
 about: "about"
@@ -32,3 +32,5 @@ id: 497
 image_url: "http://image.com.br/img.gif"
 name: "name"
 user: "user200"
+
+RANKING - ainda falta

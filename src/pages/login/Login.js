@@ -49,6 +49,7 @@ export const H2Form = styled.h2`
   text-transform: uppercase;
   margin: 15px 0;
   color: #333;
+  font-family: "Poppins", sans-serif !important;
 ` 
 
 export const LinkA = styled.a`
@@ -80,12 +81,15 @@ export const StyledButton = styled(Button)`
     var(--color-primary-dark)
   );
   text-transform: uppercase;
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif !important;
   background-size: 200%;
   transition: 0.5s;
 
-  &:hover{
-  background-position: right;
+&:hover{
+  background:red ;
+}
 
-  }
+&:focus{
+  background:red ;
+}
 `

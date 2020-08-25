@@ -6,6 +6,8 @@ import Api from "../../services/api.js";
 import Perfil from "../../pages/perfil/Perfil.jsx";
 import Users from "../../pages/users/Users.jsx";
 import LayoutMenu from "../layoutMenu/LayoutMenu.jsx";
+import Feedbacks from "../../pages/feedbacks/feedbacks.jsx";
+import Ranking from "../../pages/ranking/ranking.jsx";
 
 function Authenticator() {
   const [isAuth, setAuth] = useState(undefined);
@@ -48,11 +50,20 @@ function Authenticator() {
             <Route exact path="/">
               <Redirect to="/users/1" />
             </Route>
+            <Route exact path="/users">
+              <Redirect to="/users/1" />
+            </Route>
             <Route exact path="/users/:page">
               <Users />
             </Route>
             <Route exact path="/profile">
               <Perfil />
+            </Route>
+            <Route exact path="/feedbacks/:id">
+              <Feedbacks />
+            </Route>
+            <Route exact path="/ranking">
+              <Ranking />
             </Route>
           </Switch>
         </LayoutMenu>
