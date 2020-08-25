@@ -29,7 +29,7 @@ const Login = ({ setAuth }) => {
       .then((res) => {
         window.localStorage.setItem("id", res.data.user.id);
         window.localStorage.setItem("authToken", res.data.auth_token);
-        history.push("/users");
+        history.push("/users/1");
         setAuth(true);
       })
       .catch((res) => {});

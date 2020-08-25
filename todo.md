@@ -5,7 +5,7 @@ Pages:
   (Sem nenhum menu)
   ///////////////
 - Perfil (card) => Ricardo - 3
-- Modal (editing bio, image) => Ricardo
+- Modal (name, editing bio, image) => Ricardo
 - Users(cards) => Ricardo - 4
 - CardPage(perfil lateral/feedback - from clicking on card) => Luis - 4 - depois de refazer o card
 
