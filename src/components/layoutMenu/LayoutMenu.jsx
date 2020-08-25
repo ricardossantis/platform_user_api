@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Layout, Menu } from "antd";
 import styled from "styled-components";
 import {
@@ -9,12 +10,14 @@ import {
   UploadOutlined,
 } from "@ant-design/icons";
 import "antd/dist/antd.css";
-import "./LayoutMenu.css";
-import ProfilePic from "../../assets/images/undraw_profile_pic_ic5t.png";
+import ProfilePic from "../../assets/images/maleavatar2.svg";
 
-const { Header, Sider, Content } = Layout;
+const { Header, Sider } = Layout;
 
 const LayoutMenu = ({ children }) => {
+  const { pathname } = useLocation();
+  console.log(pathname);
+
   const [collapsed, setCollapsed] = useState(false);
 
   const toggle = () => {
@@ -24,7 +27,7 @@ const LayoutMenu = ({ children }) => {
   return (
     <div style={{ width: "100vw", height: "100vh" }}>
       <Layout style={{ width: "100vw", height: "100vh" }}>
-        <StyledSider trigger={null} collapsible collapsed={collapsed}>
+        <StyledSider collapsible collapsed={collapsed} onCollapse={toggle}>
           <ProfileDiv className="logo">
             <img
               src={ProfilePic}
@@ -36,33 +39,37 @@ const LayoutMenu = ({ children }) => {
               }}
             />
           </ProfileDiv>
-          <Menu mode="inline" defaultSelectedKeys={["1"]}>
-            <Menu.Item key="1" icon={<UserOutlined />}>
-              Perfil
+          <StyledMenu
+            theme="dark"
+            mode="inline"
+            defaultSelectedKeys={[`${pathname}`]}
+          >
+            <Menu.Item key="/profile" icon={<UserOutlined />}>
+              <Link to="/profile">Perfil</Link>
             </Menu.Item>
-            <Menu.Item key="2" icon={<VideoCameraOutlined />}>
-              Users
+            <Menu.Item key="/users/1" icon={<VideoCameraOutlined />}>
+              <Link to="/users/1"> Users</Link>
             </Menu.Item>
             <Menu.Item
-              key="3"
+              key="/feedbacks/:id"
               icon={
                 <i className="fas fa-users" style={{ marginRight: "8px" }} />
               }
             >
-              My feedbacks
+              <Link to="/feedbacks/:id">{collapsed ? "" : "My feedbacks"}</Link>
             </Menu.Item>
-          </Menu>
+            <Menu.Item key="/ranking" icon={<VideoCameraOutlined />}>
+              <Link to="/ranking">Ranking</Link>
+            </Menu.Item>
+          </StyledMenu>
         </StyledSider>
         <Layout className="site-layout">
-          <Header className="site-layout-background" style={{ padding: 0 }}>
-            {React.createElement(
-              collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
-              {
-                className: "trigger",
-                onClick: toggle,
-              }
-            )}
-          </Header>
+          <StyledHeader
+            className="site-layout-background"
+            style={{ padding: 0 }}
+          >
+            <H3Header>{pathname.slice(1)}</H3Header>
+          </StyledHeader>
           <StyledContent>{children}</StyledContent>
         </Layout>
       </Layout>
@@ -77,14 +84,36 @@ const ProfileDiv = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100px;
-  background: rgba(255, 255, 255, 0.2);
+  margin: 20px 0px 20px 0px;
 `;
 
 const StyledSider = styled(Sider)`
-  background-color: var(--color-primary);
+  background: radial-gradient(
+    146.49% 63.82% at 50.14% 50%,
+    #7a7a7a 0%,
+    #343434 100%
+  );
+  .ant-menu,
+  .ant-menu-dark {
+    background: #343434;
+  }
+  .ant-layout-sider-trigger {
+    background: var(--color-fifth-dark);
+  }
 `;
 
 const StyledContent = styled.div`
-  min-height: 100%;
+  height: 100vh;
+`;
+
+const StyledMenu = styled(Menu)`
+  background-color: var(--color-primary);
+`;
+
+const StyledHeader = styled(Header)``;
+
+const H3Header = styled.h3`
+  margin-left: 20px;
+  color: white;
+  font-family: "Poppins", sans-serif;
 `;

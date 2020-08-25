@@ -16,27 +16,11 @@ export const InputContainer = styled.div`
   padding: 5px 0;
   border-bottom: 2px solid #d9d9d9;
 
-  &:after,:before{
-    content: "";
-  position: absolute;
-  bottom: -2px;
-  width: 0;
-  height: 2px;
-  background-color: var(--color-primary);
   ${(props) => props.focusActive && `
-    width: 50%;
+      border-bottom: 2px solid var(--color-primary);
+
+
 `}
-  }
-
-  &:after{
-    right: 50%;
-
-  }
-
-  &:before{
-    right: 50%;
-
-  }
 
 `
 export const Icon = styled.i`
@@ -76,18 +60,21 @@ position: absolute;
   height: 100%;
   top: 0;
   left: 0;
-  border: none;
-  outline: none;
+  border: none !important;
+  outline: none !important;
+  box-shadow:none;
   background: none;
   padding: 0.5rem 0.7rem;
   font-size: 1.2rem;
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif !important;
   color: #555;
 
-  &:focus{
-    border:none;
-    outline: none;
-  background: none;
+  &&&:focus{
+    border:none ;
+    outline: none ;
+  background: none ;
+  box-shadow:none ;
+
 
   }
 `

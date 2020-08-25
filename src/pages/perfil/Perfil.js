@@ -54,16 +54,29 @@ export const BackGround = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    var(--color-primary-lighter),
-    var(--color-primary-dark)
-  );
+  height: 100vh;
+  background: radial-gradient(186.21% 186.21% at 50% 50.45%, #7DEFFF 0%, #325A67 51.56%, #7DEFFF 100%);
 `;
 
 export const CardBox = styled(Card)`
   width: 600px;
-  border: none;
+  border-radius: 20px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-flow: column;
+ 
+ .ant-card-cover{
+  height:200px;
+  width:200px ;
+  border-radius: 50%;
+  };
+
+  .ant-card-body{
+    min-width:200px
+  }
+  
+ 
 `;
 
 export const ProfileMeta = styled(Meta)`
@@ -84,7 +97,7 @@ export const ProfileMeta = styled(Meta)`
 `;
 
 export const BorderDiv = styled.div`
-  width: 850px;
+  width: 70%;
   height: 90%;
   border-radius: 15%;
   background-color: white;

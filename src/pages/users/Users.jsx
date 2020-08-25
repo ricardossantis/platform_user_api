@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { BackGround, StyledDiv, StyledPagination } from "./Users.js";
+import {
+  BackGround,
+  StyledDiv,
+  StyledPagination,
+  StyledSearch,
+} from "./Users.js";
 import Card from "../../components/card-users/Card.jsx";
 import Api from "../../services/api.js";
-import { Input } from "antd";
+import { Button } from "antd";
+import { SearchOutlined } from "@ant-design/icons";
 import { useParams, useHistory } from "react-router-dom";
-const { Search } = Input;
 
 function Users() {
   const [numItems, setNumItems] = useState(Array(12).fill(0));
@@ -47,10 +52,10 @@ function Users() {
 
   return (
     <BackGround>
-      <Search
+      <StyledSearch
         placeholder="Insert user name"
         onSearch={handleSearch}
-        enterButton
+        enterButton={<Button icon={<SearchOutlined />} />}
       />
       <StyledDiv>
         {numItems.map((item, indexItem) => {
