@@ -46,9 +46,9 @@ function Authenticator() {
         <LayoutMenu>
           <Switch>
             <Route exact path="/">
-              <Redirect to="/users" />
+              <Redirect to="/users/1" />
             </Route>
-            <Route exact path="/users">
+            <Route exact path="/users/:page">
               <Users />
             </Route>
             <Route exact path="/profile">

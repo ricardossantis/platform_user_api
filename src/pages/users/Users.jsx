@@ -3,6 +3,7 @@ import { BackGround, StyledDiv, StyledPagination } from "./Users.js";
 import Card from "../../components/card-users/Card.jsx";
 import Api from "../../services/api.js";
 import { Input } from "antd";
+import { useParams, useHistory } from "react-router-dom";
 const { Search } = Input;
 
 function Users() {
@@ -12,6 +13,8 @@ function Users() {
   const [pagination, setPagination] = useState(0);
   const [pageSize, setSize] = useState(12);
   let counter = pagination;
+  let history = useHistory();
+  let params = useParams();
 
   useEffect(() => {
     const token = window.localStorage.getItem("authToken");
@@ -21,10 +24,12 @@ function Users() {
       setUsers(res.data);
       setTotalUsers(res.data);
     });
+    setPagination(params.page * pageSize);
   }, []);
 
   const handlePagination = (page) => {
     setPagination(page * pageSize);
+    history.push(`/users/${page}`);
   };
 
   const handleSearch = (value) => {
@@ -50,7 +55,6 @@ function Users() {
       <StyledDiv>
         {numItems.map((item, indexItem) => {
           counter += 1;
-          console.log(users);
           return (
             counter <= users.length && (
               <Card
@@ -64,7 +68,7 @@ function Users() {
         })}
       </StyledDiv>
       <StyledPagination
-        defaultCurrent={1}
+        defaultCurrent={params.page}
         onChange={handlePagination}
         total={users.length}
         showTotal={(total, range) =>

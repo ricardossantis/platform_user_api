@@ -1,6 +1,53 @@
 import styled from "styled-components";
 import { Card } from "antd";
+import { Form, Button, Modal } from "antd";
 const { Meta } = Card;
+
+export const StyledModal = styled(Modal)`
+  display: flex;
+  justify-content: center;
+`;
+
+export const BoxImg = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+`;
+
+export const LoginContainer = styled.div`
+  display: flex;
+  align-items: center;
+  text-align: center;
+`;
+
+export const StyledForm = styled(Form)`
+  width: 360px;
+`;
+
+export const StyledButton = styled(Button)`
+  display: block;
+  width: 100%;
+  height: 50px;
+  border-radius: 25px;
+  margin: 1rem 0;
+  font-size: 1.2rem;
+  outline: none;
+  border: none;
+  background-image: linear-gradient(
+    to right,
+    var(--color-primary-lighter),
+    var(--color-primary),
+    var(--color-primary-dark)
+  );
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
+  background-size: 200%;
+  transition: 0.5s;
+
+  &:hover {
+    background-position: right;
+  }
+`;
 
 export const BackGround = styled.div`
   display: flex;

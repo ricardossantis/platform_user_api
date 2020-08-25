@@ -10,7 +10,7 @@ import {
   StyledForm,
 } from "./Input";
 
-const StylezedInput = ({ icon, name, label, type }) => {
+const StylezedInput = ({ icon, name, label, type, rules }) => {
   const [focusActive, setFocusActive] = useState(false);
 
   return (
@@ -27,7 +27,7 @@ const StylezedInput = ({ icon, name, label, type }) => {
       {/*  InputBox*/}
       <InputBox>
         <H5Form focusActive={focusActive}>{label}</H5Form>
-        <StyledForm.Item name={name}>
+        <StyledForm.Item name={name} rules={rules}>
           <StyledInput type={type} />
         </StyledForm.Item>
       </InputBox>
