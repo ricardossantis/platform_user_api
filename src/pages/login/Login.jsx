@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import WaveImg from "../../assets/images/wave.png";
 import { useHistory } from "react-router-dom";
 import Goals from "../../assets/images/undraw_shared_goals_3d12.svg";
-import ProfIcon from "../../assets/images/undraw_profile_pic_ic5t.png";
 import api from "../../services/api";
+import profIcon from "../../assets/images/maleAvatar.svg";
 
 import {
   Wave,
@@ -44,7 +44,7 @@ const Login = ({ setAuth }) => {
         </BoxImg>
         <LoginContainer>
           <StyledForm onFinish={onFinish}>
-            <Avatar c src={ProfIcon} alt="" />
+            <Avatar c src={profIcon} alt="" />
             <H2Form color={"blue"}>Welcome</H2Form>
             {/* InputContainer*/}
             <StylezedInput

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import WaveImg from "../../assets/images/wave.png";
 import Celebration from "../../assets/images/undraw_celebration_0jvk.svg";
-import ProfIcon from "../../assets/images/undraw_profile_pic_ic5t.png";
 import api from "../../services/api";
 import Select from "react-select";
-import logo from "../../assets/images/undraw_profile_pic_ic5t.png";
+import profilePicMale from "../../assets/images/maleAvatar.svg";
+import profilePicFemale from "../../assets/images/femaleAvatar.svg";
 import { message } from "antd";
 
 import {
@@ -17,6 +17,7 @@ import {
   Avatar,
   H2Form,
   StyledButton,
+  LinkA,
 } from "./Register";
 import StylezedInput from "../../components/input/Input.jsx";
 
@@ -26,7 +27,7 @@ const Register = () => {
       value: "male",
       label: (
         <div>
-          <img style={{ width: "50px", height: "50px" }} src={logo} /> {" Male"}
+          <img style={{ width: "50px", height: "50px" }} src={profilePicMale} />
         </div>
       ),
     },
@@ -34,8 +35,10 @@ const Register = () => {
       value: "female",
       label: (
         <div>
-          <img style={{ width: "50px", height: "50px" }} src={logo} />
-          {" Female"}
+          <img
+            style={{ width: "50px", height: "50px" }}
+            src={profilePicFemale}
+          />
         </div>
       ),
     },
@@ -73,7 +76,7 @@ const Register = () => {
         </BoxImg>
         <LoginContainer>
           <StyledForm onFinish={onFinish}>
-            <Avatar src={ProfIcon} alt="" />
+            <Avatar src={profilePicMale} alt="" />
             <H2Form>Join us!</H2Form>
             <div>Select your avatar</div>
             <StyledForm.Item
@@ -161,6 +164,10 @@ const Register = () => {
                 }),
               ]}
             />
+            <LinkA to="/">
+              {" "}
+              <i class="fas fa-sign-out-alt"></i>Voltar
+            </LinkA>
             <StyledButton type="submit" htmlType="submit">
               Register
             </StyledButton>
@@ -172,9 +179,3 @@ const Register = () => {
 };
 
 export default Register;
-
-// name: "name"
-// user: "user200"
-// about: "about"
-// address: "Rua dos Alfeneiros, nº4"
-// email: "test200@test.com"

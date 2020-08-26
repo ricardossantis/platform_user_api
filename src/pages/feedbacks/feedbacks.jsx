@@ -2,7 +2,6 @@ import React, { useEffect, useState, useParams } from "react";
 import { EditOutlined } from "@ant-design/icons";
 import "antd/dist/antd.css";
 import { CardBox, ProfileMeta, BackGround, BorderDiv } from "./feedbacks.js";
-import ProfIcon from "../../assets/images/undraw_profile_pic_ic5t.png";
 import Api from "../../services/api.js";
 import styled from "styled-components";
 const Feedbacks = () => {

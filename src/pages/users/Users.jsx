@@ -17,7 +17,6 @@ function Users() {
   const [totalUsers, setTotalUsers] = useState();
   const [pagination, setPagination] = useState(0);
   const [pageSize, setSize] = useState(12);
-  let counter = pagination;
   let history = useHistory();
   let params = useParams();
 
@@ -38,11 +37,13 @@ function Users() {
   };
 
   const handleSearch = (value) => {
-    let filtered = totalUsers.filter(
-      (item) => item.name !== null && item.name.match(value)
-    );
+    handlePagination(1);
+    let filtered = totalUsers.filter((item) => {
+      if (item.name !== null && item.name.match(value) !== null) {
+        return true;
+      }
+    });
     setUsers(filtered);
-    setNumItems(Array(filtered.length).fill(0));
   };
 
   const handlePageSize = (page, size) => {
@@ -58,19 +59,19 @@ function Users() {
         enterButton={<Button icon={<SearchOutlined />} />}
       />
       <StyledDiv>
-        {numItems.map((item, indexItem) => {
-          counter += 1;
-          return (
-            counter <= users.length && (
-              <Card
-                key={indexItem}
-                name={users[counter - 1].name}
-                user={users[counter - 1].user}
-                email={users[counter - 1].email}
-              />
-            )
-          );
-        })}
+        {users[0] !== "" &&
+          numItems.map((item, indexItem) => {
+            return (
+              users[indexItem + pagination - 12] !== undefined && (
+                <Card
+                  key={indexItem}
+                  name={users[indexItem + pagination - 12].name}
+                  user={users[indexItem + pagination - 12].user}
+                  email={users[indexItem + pagination - 12].email}
+                />
+              )
+            );
+          })}
       </StyledDiv>
       <StyledPagination
         defaultCurrent={params.page}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Layout, Menu } from "antd";
 import styled from "styled-components";
@@ -10,13 +10,33 @@ import {
   UploadOutlined,
 } from "@ant-design/icons";
 import "antd/dist/antd.css";
-import ProfilePic from "../../assets/images/maleavatar2.svg";
+import profilePicMale from "../../assets/images/maleAvatar.svg";
+import profilePicFemale from "../../assets/images/femaleAvatar.svg";
+import Logout from "../logout/Logout.jsx";
+import Api from "../../services/api.js";
 
 const { Header, Sider } = Layout;
 
+String.prototype.capitalize = function () {
+  return this.charAt(0).toUpperCase() + this.slice(1);
+};
+
 const LayoutMenu = ({ children }) => {
   const { pathname } = useLocation();
-  console.log(pathname);
+  const [profilePic, setProfilePic] = useState(profilePicMale);
+
+  useEffect(() => {
+    const id = window.localStorage.getItem("id");
+    const token = window.localStorage.getItem("authToken");
+    let profilePic;
+    Api.get(`users/${id}`, {
+      headers: { Authorization: token },
+    }).then((res) =>
+      setProfilePic(
+        res.data.image_url === "male" ? profilePicMale : profilePicFemale
+      )
+    );
+  });
 
   const [collapsed, setCollapsed] = useState(false);
 
@@ -30,7 +50,7 @@ const LayoutMenu = ({ children }) => {
         <StyledSider collapsible collapsed={collapsed} onCollapse={toggle}>
           <ProfileDiv className="logo">
             <img
-              src={ProfilePic}
+              src={profilePic}
               alt="profile"
               style={{
                 width: "70%",
@@ -68,7 +88,8 @@ const LayoutMenu = ({ children }) => {
             className="site-layout-background"
             style={{ padding: 0 }}
           >
-            <H3Header>{pathname.slice(1)}</H3Header>
+            <H3Header>{pathname.slice(1).capitalize()}</H3Header>
+            <Logout />
           </StyledHeader>
           <StyledContent>{children}</StyledContent>
         </Layout>
@@ -97,6 +118,10 @@ const StyledSider = styled(Sider)`
   .ant-menu-dark {
     background: #343434;
   }
+  .ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal)
+    .ant-menu-item-selected {
+    background-color: var(--color-sixth-dark);
+  }
   .ant-layout-sider-trigger {
     background: var(--color-fifth-dark);
   }
@@ -110,7 +135,11 @@ const StyledMenu = styled(Menu)`
   background-color: var(--color-primary);
 `;
 
-const StyledHeader = styled(Header)``;
+const StyledHeader = styled(Header)`
+  display: flex;
+  justify-content: space-between;
+  background-color: #003018;
+`;
 
 const H3Header = styled.h3`
   margin-left: 20px;

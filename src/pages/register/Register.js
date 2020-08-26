@@ -1,68 +1,68 @@
-import styled from "styled-components"
+import styled from "styled-components";
 import { Form, Button } from "antd";
+import { Link } from "react-router-dom";
 
-
-export const Wave = styled.img` 
+export const Wave = styled.img`
   position: fixed;
   width: 55%;
   height: 100%;
   left: 0;
   bottom: 0;
   z-index: -1;
-`
+`;
 
-export const Container = styled.div` 
+export const Container = styled.div`
   width: 100vw;
   height: 100vh;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 7rem;
   padding: 0 2rem;
-`
+`;
 
 export const BoxImg = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-`
+`;
 
-export const ImgGoals = styled.img` 
+export const ImgGoals = styled.img`
   width: 500px;
-`
+`;
 
-export const LoginContainer = styled.div` 
+export const LoginContainer = styled.div`
   display: flex;
   align-items: center;
   text-align: center;
-`
+`;
 
 export const StyledForm = styled(Form)`
   width: 360px;
-`
+`;
 
-export const Avatar =styled.img`
+export const Avatar = styled.img`
   width: 100px;
-`
+`;
 
 export const H2Form = styled.h2`
   font-size: 2.9rem;
   text-transform: uppercase;
   margin: 15px 0;
   color: #333;
-` 
+`;
 
-export const LinkA = styled.a`
+export const LinkA = styled(Link)`
   display: block;
   text-align: right;
   text-decoration: none;
   color: #999;
   font-size: 0.9rem;
   transition: 0.3s;
-          
-   &:hover{
-   color: var(--color-primary);
-    }
-  `
+
+  &:hover {
+    color: var(--color-primary);
+  }
+`;
 
 export const StyledButton = styled(Button)`
   display: block;
@@ -84,8 +84,7 @@ export const StyledButton = styled(Button)`
   background-size: 200%;
   transition: 0.5s;
 
-  &:hover{
-  background-position: right;
-
+  &:hover {
+    background-position: right;
   }
-`
+`;
