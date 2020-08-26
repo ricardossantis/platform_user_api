@@ -24,6 +24,7 @@ String.prototype.capitalize = function () {
 const LayoutMenu = ({ children }) => {
   const { pathname } = useLocation();
   const [profilePic, setProfilePic] = useState(profilePicMale);
+  console.log(pathname);
 
   useEffect(() => {
     const id = window.localStorage.getItem("id");
@@ -70,13 +71,13 @@ const LayoutMenu = ({ children }) => {
               <Link to="/profile">Perfil</Link>
             </Menu.Item>
             <Menu.Item
-              key={pathname.match("users") && pathname}
+              key={`/users/${pathname.slice(7)}`}
               icon={<VideoCameraOutlined />}
             >
               <Link to="/users/1"> Users</Link>
             </Menu.Item>
             <Menu.Item
-              key={pathname.match("feedbacks") && pathname}
+              key={`/feedbacks/${pathname.slice(11)}`}
               icon={
                 <i className="fas fa-users" style={{ marginRight: "8px" }} />
               }

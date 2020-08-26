@@ -1,6 +1,26 @@
 import styled from "styled-components";
-import { Card } from "antd";
+import { Card, Modal, Button } from "antd";
 const { Meta } = Card;
+
+export const StyledModal = styled(Modal)`
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+`;
+
+export const StyledButton = styled(Button)`
+  margin: 50px 0;
+  width: 200px;
+  border-radius: 25px;
+  background-color: var(--color-primary);
+  font-weight: bold;
+
+  &:hover {
+    background-color: var(--color-primary-dark);
+    color: var(--color-sixth-dark);
+    border-color: var(--color-sixth);
+  }
+`;
 
 export const BackGround = styled.div`
   display: flex;
@@ -15,7 +35,6 @@ export const BackGround = styled.div`
     rgba(49, 142, 53, 0.901042) 100%
   );
 `;
-
 
 export const Container = styled.div`
   display: flex;
@@ -35,13 +54,11 @@ export const BoxTable = styled.div`
 
   .ant-table-wrapper {
     background: radial-gradient(
-    100.72% 100.72% at 50% 50%,
-    #c0fabe 0%,
-    rgba(49, 142, 53, 0.901042) 100%
-  );
+      100.72% 100.72% at 50% 50%,
+      #c0fabe 0%,
+      rgba(49, 142, 53, 0.901042) 100%
+    );
   }
-
- 
 `;
 
 export const BoxImg = styled.div`

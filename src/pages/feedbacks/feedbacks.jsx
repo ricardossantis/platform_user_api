@@ -6,15 +6,17 @@ import {
   BoxTable,
   BackGround,
   Container,
+  StyledModal,
+  StyledButton,
 } from "./feedbacks.js";
 import Api from "../../services/api.js";
 import MaleAvatar from "../../assets/images/maleAvatar.svg";
 import { useParams } from "react-router-dom";
-import { Table, Descriptions } from "antd";
+import { Table, Descriptions, Form, Input } from "antd";
 
 const Feedbacks = () => {
   const { id } = useParams();
-
+  const [visible, setVisibility] = useState(false);
   const [feedbacks, setFeedbacks] = useState([]);
   const [{ name, user, email, address, cellphone }, setUserInfo] = useState({});
 
@@ -38,6 +40,27 @@ const Feedbacks = () => {
       headers: { Authorization: token },
     }).then(({ data }) => setUserInfo(data));
   }, [id]);
+
+  const showModal = () => {
+    setVisibility(true);
+  };
+
+  const handleCancel = (e) => {
+    setVisibility(false);
+  };
+
+  const handleModalSubmit = (values) => {
+    const token = window.localStorage.getItem("authToken");
+    const idUser = window.localStorage.getItem("id");
+    let sendObject = { feedback: { name: "", ...values } };
+    console.log(sendObject);
+    Api.post(`/users/${idUser}/feedbacks`, sendObject, {
+      headers: { Authorization: token },
+    }).then((res) => {
+      setFeedbacks([...feedbacks, { ...res.data, ...res.data.creator }]);
+    });
+    handleCancel();
+  };
 
   const columns = [
     {
@@ -88,6 +111,20 @@ const Feedbacks = () => {
           </Descriptions>
         </BoxInfos>
       </Container>
+      <StyledModal visible={visible} onCancel={handleCancel} footer="">
+        <Form onFinish={handleModalSubmit} style={{ margin: "30px" }}>
+          <Form.Item name="comment">
+            <Input.TextArea placeholder="Comment" rows={4} />
+          </Form.Item>
+          <Form.Item name="grade">
+            <Input placeholder="Grade" />
+          </Form.Item>
+          <StyledButton type="submit" htmlType="submit">
+            Post Feedback
+          </StyledButton>
+        </Form>
+      </StyledModal>
+      <StyledButton onClick={showModal}>New Feedback</StyledButton>
       <BoxTable>
         <Table
           id="table"
