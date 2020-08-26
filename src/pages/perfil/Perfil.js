@@ -55,28 +55,31 @@ export const BackGround = styled.div`
   align-items: center;
   width: 100%;
   height: 100vh;
-  background: radial-gradient(186.21% 186.21% at 50% 50.45%, #7DEFFF 0%, #325A67 51.56%, #7DEFFF 100%);
+  background: radial-gradient(
+    186.21% 186.21% at 50% 50.45%,
+    #7defff 0%,
+    #325a67 51.56%,
+    #7defff 100%
+  );
 `;
 
 export const CardBox = styled(Card)`
   width: 600px;
   border-radius: 20px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   flex-flow: column;
- 
- .ant-card-cover{
-  height:200px;
-  width:200px ;
-  border-radius: 50%;
-  };
 
-  .ant-card-body{
-    min-width:200px
+  .ant-card-cover {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
   }
-  
- 
+
+  .ant-card-body {
+    width: 80%;
+  }
 `;
 
 export const ProfileMeta = styled(Meta)`

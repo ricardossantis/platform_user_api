@@ -5,19 +5,18 @@ import {
   CardBox,
   ProfileMeta,
   BackGround,
-  BorderDiv,
   LoginContainer,
   StyledForm,
   StyledButton,
   StyledModal,
 } from "./Perfil.js";
 import StylezedInput from "../../components/input/Input.jsx";
-import ProfIcon from "../../assets/images/undraw_profile_pic_ic5t.png";
 import Api from "../../services/api.js";
 import { Input } from "antd";
 import Select from "react-select";
-import logo from "../../assets/images/undraw_profile_pic_ic5t.png";
 import { message } from "antd";
+import profilePicMale from "../../assets/images/maleAvatar.svg";
+import profilePicFemale from "../../assets/images/femaleAvatar.svg";
 
 function Perfil() {
   const imageOptions = [
@@ -25,7 +24,7 @@ function Perfil() {
       value: "male",
       label: (
         <div>
-          <img style={{ width: "50px", height: "50px" }} src={logo} /> {" Male"}
+          <img style={{ width: "50px", height: "50px" }} src={profilePicMale} />
         </div>
       ),
     },
@@ -33,8 +32,10 @@ function Perfil() {
       value: "female",
       label: (
         <div>
-          <img style={{ width: "50px", height: "50px" }} src={logo} />
-          {" Female"}
+          <img
+            style={{ width: "50px", height: "50px" }}
+            src={profilePicFemale}
+          />
         </div>
       ),
     },
@@ -68,13 +69,13 @@ function Perfil() {
     Api.get(`users/${id}`, {
       headers: { Authorization: token },
     }).then((res) => {
-      console.log(res);
       setProfileData({
         name: res.data.name,
         about: res.data.about,
         email: res.data.email,
         user: res.data.user,
         address: res.data.address,
+        image_url: res.data.image_url,
       });
     });
   }, []);
@@ -86,25 +87,26 @@ function Perfil() {
   const onFinish = (values) => {
     const id = window.localStorage.getItem("id");
     const token = window.localStorage.getItem("authToken");
-    console.log(id);
-    let editObject = { user: {} };
     let apiObject = { user: values };
-    if (values.image_url) apiObject.user.values.image_url = values.image_url;
-    Object.entries(apiObject.user).forEach((key) => {
-      if (key[1] !== undefined) {
-        Object.defineProperty(editObject.user, `${key[0]}`, {
-          value: key[1],
-        });
+    if (values.image_url) apiObject.user.image_url = values.image_url.value;
+    Api.put(
+      `users/${id}`,
+      { ...apiObject },
+      {
+        headers: { Authorization: token },
       }
-    });
-    console.log(editObject);
-    Api.put(`users/${id}`, {
-      headers: { Authorization: token },
-      data: editObject,
-    })
+    )
       .then((res) => {
         info("Edit successful");
-        console.log(res);
+        handleCancel();
+        setProfileData({
+          name: res.data.name,
+          about: res.data.about,
+          email: res.data.email,
+          user: res.data.user,
+          address: res.data.address,
+          image_url: res.data.image_url,
+        });
       })
       .catch((err) => {
         info("Edit failed");
@@ -114,7 +116,16 @@ function Perfil() {
   return (
     <BackGround>
       <CardBox
-        cover={<img alt="example" src={ProfIcon} />}
+        cover={
+          <img
+            alt="example"
+            src={
+              profileData.image_url === "male"
+                ? profilePicMale
+                : profilePicFemale
+            }
+          />
+        }
         actions={[<EditOutlined key="edit" onClick={showModal} />]}
       >
         <ProfileMeta
@@ -143,12 +154,11 @@ function Perfil() {
         <LoginContainer>
           <StyledForm onFinish={onFinish}>
             <div>Select your avatar</div>
-            <StyledForm.Item>
+            <StyledForm.Item name="image_url">
               <Select
                 value={selectedOption}
                 options={imageOptions}
                 onChange={handleSelectChange}
-                name="image_url"
               />
             </StyledForm.Item>
 

@@ -2,7 +2,7 @@ import React from "react";
 import { CardBox, ProfileMeta, BorderDiv } from "./Card.js";
 import { EditOutlined } from "@ant-design/icons";
 import "antd/dist/antd.css";
-import ProfIcon from "../../assets/images/undraw_profile_pic_ic5t.png";
+import ProfIcon from "../../assets/images/cardProfile.svg";
 
 function Card(props) {
   return (
