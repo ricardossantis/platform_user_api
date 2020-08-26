@@ -80,11 +80,27 @@ export const StyledButton = styled(Button)`
     var(--color-primary-dark)
   );
   text-transform: uppercase;
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif !important;
   background-size: 200%;
   transition: 0.5s;
 
   &:hover {
-    background-position: right;
+    background-image: linear-gradient(
+      to right,
+      var(--color-primary-lighter),
+      var(--color-primary),
+      var(--color-primary-dark)
+    );
+    color: var(--color-sixth-dark);
+  }
+
+  &:focus {
+    background-image: linear-gradient(
+      to right,
+      var(--color-primary-light),
+      var(--color-primary),
+      var(--color-primary-dark)
+    );
+    color: var(--color-sixth-dark);
   }
 `;
