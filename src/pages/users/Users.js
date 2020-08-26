@@ -5,11 +5,7 @@ const { Search } = Input;
 export const BackGround = styled.div`
   width: 100%;
   height: 100%;
-  background: radial-gradient(
-    100.72% 100.72% at 50% 50%,
-    #c0fabe 0%,
-    rgba(49, 142, 53, 0.901042) 100%
-  );
+  
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -29,11 +25,8 @@ export const StyledPagination = styled(Pagination)`
 export const StyledSearch = styled(Search)`
   width: 40%;
   height: 35px;
-  position: absolute;
-  top: 15px;
-  left: 50%;
-  transform: translate(-35%);
-
+  margin: 0 auto;
+  margin-top: 40px
   .ant-input {
     border-radius: 100px;
     border: 1px solid var();
