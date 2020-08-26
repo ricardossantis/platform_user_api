@@ -44,6 +44,8 @@ const LayoutMenu = ({ children }) => {
     setCollapsed(!collapsed);
   };
 
+  const id = window.localStorage.getItem("id");
+
   return (
     <div style={{ width: "100vw", height: "100vh" }}>
       <Layout style={{ width: "100vw", height: "100vh" }}>
@@ -67,16 +69,21 @@ const LayoutMenu = ({ children }) => {
             <Menu.Item key="/profile" icon={<UserOutlined />}>
               <Link to="/profile">Perfil</Link>
             </Menu.Item>
-            <Menu.Item key="/users/1" icon={<VideoCameraOutlined />}>
+            <Menu.Item
+              key={pathname.match("users") && pathname}
+              icon={<VideoCameraOutlined />}
+            >
               <Link to="/users/1"> Users</Link>
             </Menu.Item>
             <Menu.Item
-              key="/feedbacks/:id"
+              key={pathname.match("feedbacks") && pathname}
               icon={
                 <i className="fas fa-users" style={{ marginRight: "8px" }} />
               }
             >
-              <Link to="/feedbacks/:id">{collapsed ? "" : "My feedbacks"}</Link>
+              <Link to={`/feedbacks/${id}`}>
+                {collapsed ? "" : "My feedbacks"}
+              </Link>
             </Menu.Item>
             <Menu.Item key="/ranking" icon={<VideoCameraOutlined />}>
               <Link to="/ranking">Ranking</Link>

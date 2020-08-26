@@ -22,6 +22,10 @@ export const InputContainer = styled.div`
 
 `}
 
+div[role="alert"]{
+ margin-top:22px;
+}
+
 `
 export const Icon = styled.i`
   color: #d9d9d9;
@@ -68,6 +72,7 @@ position: absolute;
   font-size: 1.2rem;
   font-family: "Poppins", sans-serif !important;
   color: #555;
+  margin-top:10px;
 
   &&&:focus{
     border:none ;
