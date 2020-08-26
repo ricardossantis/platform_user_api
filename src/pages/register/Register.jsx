@@ -166,7 +166,7 @@ const Register = () => {
             />
             <LinkA to="/">
               {" "}
-              <i class="fas fa-sign-out-alt"></i>Voltar
+              <i className="fas fa-sign-out-alt"></i>Voltar
             </LinkA>
             <StyledButton type="submit" htmlType="submit">
               Register

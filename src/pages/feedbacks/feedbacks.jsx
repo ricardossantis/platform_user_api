@@ -68,10 +68,6 @@ const Feedbacks = () => {
       dataIndex: "name",
     },
     {
-      title: "User",
-      dataIndex: "User",
-    },
-    {
       title: "Email",
       dataIndex: "email",
     },
@@ -103,7 +99,9 @@ const Feedbacks = () => {
           <Descriptions title="User Info">
             <Descriptions.Item label="Name">{name}</Descriptions.Item>
             <Descriptions.Item label="UserName">{user}</Descriptions.Item>
-            <Descriptions.Item label="Telephone">{cellphone}</Descriptions.Item>
+            <Descriptions.Item label="Telephone">
+              {cellphone ? cellphone : "none"}
+            </Descriptions.Item>
             <Descriptions.Item label="Address">
               {address ? address : "none"}
             </Descriptions.Item>

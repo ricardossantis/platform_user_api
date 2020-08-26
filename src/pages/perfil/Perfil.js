@@ -40,14 +40,31 @@ export const StyledButton = styled(Button)`
     var(--color-primary-dark)
   );
   text-transform: uppercase;
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif !important;
   background-size: 200%;
   transition: 0.5s;
 
-  &:hover {
-    background-position: right;
-  }
-`;
+&:hover{
+  background-image: linear-gradient(
+    to right,
+    var(--color-primary-lighter),
+    var(--color-primary),
+    var(--color-primary-dark)
+  );
+  color: var(--color-sixth-dark)
+}
+
+&:focus{
+  background-image: linear-gradient(
+    to right,
+    var(--color-primary-light),
+    var(--color-primary),
+    var(--color-primary-dark)
+  );
+  color: var(--color-sixth-dark)
+
+}
+`
 
 export const BackGround = styled.div`
   display: flex;
@@ -55,11 +72,7 @@ export const BackGround = styled.div`
   align-items: center;
   width: 100%;
   height: 100vh;
-  background: radial-gradient(
-    100.72% 100.72% at 50% 50%,
-    #c0fabe 0%,
-    rgba(49, 142, 53, 0.901042) 100%
-  );
+
 `;
 
 export const CardBox = styled(Card)`
@@ -74,6 +87,7 @@ export const CardBox = styled(Card)`
     height: 200px;
     width: 200px;
     border-radius: 50%;
+    margin-top:30px;
   }
 
   .ant-card-body {

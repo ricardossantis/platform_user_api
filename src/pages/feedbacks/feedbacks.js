@@ -9,8 +9,9 @@ export const StyledModal = styled(Modal)`
 `;
 
 export const StyledButton = styled(Button)`
-  margin: 50px 0;
   width: 200px;
+  margin-bottom: 50px;
+
   border-radius: 25px;
   background-color: var(--color-primary);
   font-weight: bold;
@@ -42,10 +43,9 @@ export const Container = styled.div`
   width: 95%;
   height: 150px;
   background: white;
-  margin-top: -250px;
   margin-bottom: 50px;
   border-radius: 25px;
-  padding: 10px;
+  padding: 15px;
 `;
 
 export const BoxTable = styled.div`
@@ -66,5 +66,5 @@ export const BoxImg = styled.div`
 `;
 
 export const BoxInfos = styled.div`
-  flex: 3;
+  flex: 6;
 `;

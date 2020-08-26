@@ -2,21 +2,11 @@ import React from "react";
 
 import { BackGround, BoxRanking, RankTag } from "./ranking.js";
 
+import RankingImg from "../../assets/images/Frame 2.svg";
 const Ranking = () => {
   return (
     <BackGround>
-      <BoxRanking>
-        <BoxRanking style={{ background: "red", width: "95%", height: "90%" }}>
-          <RankTag></RankTag>
-          <RankTag></RankTag>
-          <RankTag></RankTag>
-          <RankTag></RankTag>
-          <RankTag></RankTag>
-          <RankTag></RankTag>
-          <RankTag></RankTag>
-          <RankTag></RankTag>
-        </BoxRanking>
-      </BoxRanking>
+      <img src={RankingImg} style={{ width: "100%", height: "100%" }}></img>
     </BackGround>
   );
 };
