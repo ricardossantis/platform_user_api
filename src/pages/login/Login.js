@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import { Form, Button } from "antd";
+import { Link } from "react-router-dom";
 
 
 export const Wave = styled.img` 
@@ -52,7 +53,7 @@ export const H2Form = styled.h2`
   font-family: "Poppins", sans-serif !important;
 ` 
 
-export const LinkA = styled.a`
+export const LinkA = styled(Link)`
   display: block;
   text-align: right;
   text-decoration: none;
@@ -86,10 +87,23 @@ export const StyledButton = styled(Button)`
   transition: 0.5s;
 
 &:hover{
-  background:red ;
+  background-image: linear-gradient(
+    to right,
+    var(--color-primary-lighter),
+    var(--color-primary),
+    var(--color-primary-dark)
+  );
+  color: var(--color-sixth-dark)
 }
 
 &:focus{
-  background:red ;
+  background-image: linear-gradient(
+    to right,
+    var(--color-primary-light),
+    var(--color-primary),
+    var(--color-primary-dark)
+  );
+  color: var(--color-sixth-dark)
+
 }
 `

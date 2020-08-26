@@ -37,7 +37,7 @@ function Authenticator() {
           <Route exact path="/">
             <Login setAuth={setAuth} />
           </Route>
-          <Route exact path="/cadastro">
+          <Route exact path="/register">
             <Register />
           </Route>
         </Switch>

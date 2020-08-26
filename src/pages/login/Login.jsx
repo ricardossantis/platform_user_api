@@ -62,7 +62,7 @@ const Login = ({ setAuth }) => {
               type="password"
             />
 
-            <LinkA href="#">Forgot Password ?</LinkA>
+            <LinkA to="/register">Create account</LinkA>
             <StyledButton type="submit" htmlType="submit">
               Login
             </StyledButton>

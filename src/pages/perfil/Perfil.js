@@ -56,10 +56,9 @@ export const BackGround = styled.div`
   width: 100%;
   height: 100vh;
   background: radial-gradient(
-    186.21% 186.21% at 50% 50.45%,
-    #7defff 0%,
-    #325a67 51.56%,
-    #7defff 100%
+    100.72% 100.72% at 50% 50%,
+    #c0fabe 0%,
+    rgba(49, 142, 53, 0.901042) 100%
   );
 `;
 

@@ -9,7 +9,7 @@ import Card from "../../components/card-users/Card.jsx";
 import Api from "../../services/api.js";
 import { Button } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory, Link } from "react-router-dom";
 
 function Users() {
   const [numItems, setNumItems] = useState(Array(12).fill(0));
@@ -63,12 +63,16 @@ function Users() {
           numItems.map((item, indexItem) => {
             return (
               users[indexItem + pagination - 12] !== undefined && (
-                <Card
-                  key={indexItem}
-                  name={users[indexItem + pagination - 12].name}
-                  user={users[indexItem + pagination - 12].user}
-                  email={users[indexItem + pagination - 12].email}
-                />
+                <Link
+                  to={`/feedbacks/${users[indexItem + pagination - 12].id}`}
+                >
+                  <Card
+                    key={indexItem}
+                    name={users[indexItem + pagination - 12].name}
+                    user={users[indexItem + pagination - 12].user}
+                    email={users[indexItem + pagination - 12].email}
+                  />
+                </Link>
               )
             );
           })}
