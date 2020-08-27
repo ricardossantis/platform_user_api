@@ -30,11 +30,7 @@ export const BackGround = styled.div`
   flex-flow: column wrap;
   width: 100%;
   height: 100%;
-  background: radial-gradient(
-    100.72% 100.72% at 50% 50%,
-    #c0fabe 0%,
-    rgba(49, 142, 53, 0.901042) 100%
-  );
+ 
 `;
 
 export const Container = styled.div`
@@ -46,19 +42,15 @@ export const Container = styled.div`
   margin-bottom: 50px;
   border-radius: 25px;
   padding: 15px;
+
+  @media(max-width: 800px) {
+    flex-flow: column;
+  }
 `;
 
 export const BoxTable = styled.div`
   width: 95%;
   height: 150px;
-
-  .ant-table-wrapper {
-    background: radial-gradient(
-      100.72% 100.72% at 50% 50%,
-      #c0fabe 0%,
-      rgba(49, 142, 53, 0.901042) 100%
-    );
-  }
 `;
 
 export const BoxImg = styled.div`

@@ -12,6 +12,8 @@ export const Wave = styled.img`
 `;
 
 export const Container = styled.div`
+  font-family: "Poppins", sans-serif !important;
+
   width: 100vw;
   height: 100vh;
   display: grid;
@@ -31,6 +33,7 @@ export const ImgGoals = styled.img`
 `;
 
 export const LoginContainer = styled.div`
+
   display: flex;
   align-items: center;
   text-align: center;

@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 
-import { Menu, Layout } from "antd";
+import { Menu, Layout ,Input, Button } from "antd";
 const { Header, Sider } = Layout;
+const { Search } = Input;
 
 
 export const ProfileDiv = styled.div`
@@ -64,4 +65,30 @@ export const H3Header = styled.h3`
   margin-left: 20px;
   color: white;
   font-family: "Poppins", sans-serif;
+`;
+
+export const StyledSearch = styled(Search)`
+  width: 40%;
+  height: 35px;
+  margin:auto;
+  .ant-input {
+    border-radius: 100px;
+    border: 1px solid var();
+  };
+  .ant-input-group-addon {
+    border-radius: 100px;
+    background-image: radial-gradient(
+      var(--color-sixth-dark),
+      var(--color-sixth-light)
+    );
+  }
+  .ant-btn,
+  .ant-input-search-button,
+  .ant-btn-icon-only {
+    border-radius: 100px;
+    background-image: radial-gradient(
+      var(--color-primary),
+      #a75241
+    );
+  }
 `;

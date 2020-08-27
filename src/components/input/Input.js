@@ -3,11 +3,14 @@ import { Form, Input } from "antd";
 
 
 export const StyledForm = styled(Form)`
+
   width: 360px;
 `
 
 /** Input*/
 export const InputContainer = styled.div` 
+  font-family: "Poppins", sans-serif !important;
+
   position: relative;
   display: grid;
   grid-template-columns: 7% 93%;
@@ -23,7 +26,9 @@ export const InputContainer = styled.div`
 `}
 
 div[role="alert"]{
+  &:first-child{
  margin-top:22px;
+ }
 }
 
 `
@@ -70,11 +75,10 @@ position: absolute;
   background: none;
   padding: 0.5rem 0.7rem;
   font-size: 1.2rem;
-  font-family: "Poppins", sans-serif !important;
   color: #555;
   margin-top:10px;
 
-  &&&:focus{
+  &&&&:focus{
     border:none ;
     outline: none ;
   background: none ;

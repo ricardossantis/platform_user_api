@@ -10,6 +10,7 @@ import Feedbacks from "../../pages/feedbacks/feedbacks.jsx";
 import Ranking from "../../pages/ranking/ranking.jsx";
 
 function Authenticator() {
+  const [searchUsers, setSearchUsers] = useState(undefined);
   const [isAuth, setAuth] = useState(undefined);
   let history = useHistory();
 
@@ -45,7 +46,7 @@ function Authenticator() {
 
     case true:
       return (
-        <LayoutMenu>
+        <LayoutMenu setSearchUsers={setSearchUsers}>
           <Switch>
             <Route exact path="/">
               <Redirect to="/users/1" />
@@ -54,7 +55,7 @@ function Authenticator() {
               <Redirect to="/users/1" />
             </Route>
             <Route exact path="/users/:page">
-              <Users />
+              <Users searchUsers={searchUsers} />
             </Route>
             <Route exact path="/profile">
               <Perfil />

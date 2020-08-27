@@ -30,7 +30,7 @@ String.prototype.capitalize = function () {
   return this.charAt(0).toUpperCase() + this.slice(1);
 };
 
-const LayoutMenu = ({ children, setUserSearch }) => {
+const LayoutMenu = ({ children, setSearchUsers }) => {
   const { pathname } = useLocation();
   const [profilePic, setProfilePic] = useState(profilePicMale);
   console.log(pathname);
@@ -55,6 +55,8 @@ const LayoutMenu = ({ children, setUserSearch }) => {
   };
 
   const id = window.localStorage.getItem("id");
+
+  console.log(window.innerWidth);
 
   return (
     <div style={{ width: "100vw", height: "100vh" }}>
@@ -106,7 +108,11 @@ const LayoutMenu = ({ children, setUserSearch }) => {
             style={{ padding: 0 }}
           >
             <H3Header>{pathname.slice(1).capitalize()}</H3Header>
-
+            <StyledSearch
+              placeholder="Insert user name"
+              onSearch={(value) => setSearchUsers(value)}
+              enterButton={<Button icon={<SearchOutlined />} />}
+            />
             <Logout />
           </StyledHeader>
           <StyledContent>{children}</StyledContent>
