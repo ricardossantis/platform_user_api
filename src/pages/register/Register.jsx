@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import WaveImg from "../../assets/images/wave.png";
 import Celebration from "../../assets/images/undraw_celebration_0jvk.svg";
 import api from "../../services/api";
-import Select from "react-select";
 import profilePicMale from "../../assets/images/maleAvatar.svg";
 import profilePicFemale from "../../assets/images/femaleAvatar.svg";
 import { message } from "antd";
@@ -18,6 +17,7 @@ import {
   H2Form,
   StyledButton,
   LinkA,
+  StyledSelect,
 } from "./Register";
 import StylezedInput from "../../components/input/Input.jsx";
 import { useHistory } from "react-router-dom";
@@ -29,7 +29,13 @@ const Register = () => {
     {
       value: "male",
       label: (
-        <div>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           <img style={{ width: "50px", height: "50px" }} src={profilePicMale} />
         </div>
       ),
@@ -37,7 +43,13 @@ const Register = () => {
     {
       value: "female",
       label: (
-        <div>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           <img
             style={{ width: "50px", height: "50px" }}
             src={profilePicFemale}
@@ -87,7 +99,7 @@ const Register = () => {
               name="image_url"
               rules={[{ required: true, message: "Please select an avatar" }]}
             >
-              <Select
+              <StyledSelect
                 value={selectedOption}
                 options={imageOptions}
                 onChange={handleSelectChange}
