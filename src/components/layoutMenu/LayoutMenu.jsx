@@ -33,7 +33,8 @@ String.prototype.capitalize = function () {
 const LayoutMenu = ({ children, setSearchUsers }) => {
   const { pathname } = useLocation();
   const [profilePic, setProfilePic] = useState(profilePicMale);
-  console.log(pathname);
+
+  console.log(pathname.slice(0, 6));
 
   useEffect(() => {
     const id = window.localStorage.getItem("id");
@@ -108,11 +109,13 @@ const LayoutMenu = ({ children, setSearchUsers }) => {
             style={{ padding: 0 }}
           >
             <H3Header>{pathname.slice(1).capitalize()}</H3Header>
-            <StyledSearch
-              placeholder="Insert user name"
-              onSearch={(value) => setSearchUsers(value)}
-              enterButton={<Button icon={<SearchOutlined />} />}
-            />
+            {pathname.slice(0, 6) === "/users" && (
+              <StyledSearch
+                placeholder="Insert user name"
+                onSearch={(value) => setSearchUsers(value)}
+                enterButton={<Button icon={<SearchOutlined />} />}
+              />
+            )}
             <Logout />
           </StyledHeader>
           <StyledContent>{children}</StyledContent>

@@ -18,6 +18,17 @@ export const LoginContainer = styled.div`
   display: flex;
   align-items: center;
   text-align: center;
+
+  .ant-select-selector{
+  height:55px !important;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin: 0 auto;
+};
+.ant-select-selection-item{
+  margin-top:30px;
+}
 `;
 
 export const StyledForm = styled(Form)`
