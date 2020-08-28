@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Card } from "antd";
 import { Form, Button, Modal } from "antd";
+import Select from "react-select";
 const { Meta } = Card;
 
 export const StyledModal = styled(Modal)`
@@ -19,16 +20,16 @@ export const LoginContainer = styled.div`
   align-items: center;
   text-align: center;
 
-  .ant-select-selector{
-  height:55px !important;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  margin: 0 auto;
-};
-.ant-select-selection-item{
-  margin-top:30px;
-}
+  .ant-select-selector {
+    height: 55px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+  .ant-select-selection-item {
+    margin-top: 30px;
+  }
 `;
 
 export const StyledForm = styled(Form)`
@@ -55,27 +56,26 @@ export const StyledButton = styled(Button)`
   background-size: 200%;
   transition: 0.5s;
 
-&:hover{
-  background-image: linear-gradient(
-    to right,
-    var(--color-primary-lighter),
-    var(--color-primary),
-    var(--color-primary-dark)
-  );
-  color: var(--color-sixth-dark)
-}
+  &:hover {
+    background-image: linear-gradient(
+      to right,
+      var(--color-primary-lighter),
+      var(--color-primary),
+      var(--color-primary-dark)
+    );
+    color: var(--color-sixth-dark);
+  }
 
-&:focus{
-  background-image: linear-gradient(
-    to right,
-    var(--color-primary-light),
-    var(--color-primary),
-    var(--color-primary-dark)
-  );
-  color: var(--color-sixth-dark)
-
-}
-`
+  &:focus {
+    background-image: linear-gradient(
+      to right,
+      var(--color-primary-light),
+      var(--color-primary),
+      var(--color-primary-dark)
+    );
+    color: var(--color-sixth-dark);
+  }
+`;
 
 export const BackGround = styled.div`
   display: flex;
@@ -83,7 +83,6 @@ export const BackGround = styled.div`
   align-items: center;
   width: 100%;
   height: 100vh;
-
 `;
 
 export const CardBox = styled(Card)`
@@ -98,7 +97,7 @@ export const CardBox = styled(Card)`
     height: 200px;
     width: 200px;
     border-radius: 50%;
-    margin-top:30px;
+    margin-top: 30px;
   }
 
   .ant-card-body {
@@ -135,4 +134,11 @@ export const BorderDiv = styled.div`
   -webkit-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
   -moz-box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
   box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+`;
+
+export const StyledSelect = styled(Select)`
+  .css-g1d714-ValueContainer {
+    height: 55px;
+    justify-content: center;
+  }
 `;

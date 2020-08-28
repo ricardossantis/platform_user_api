@@ -18,7 +18,7 @@ import {
   StyledButton,
   LinkA,
   StyledSelect,
-} from "./Register";
+} from "./Register.js";
 import StylezedInput from "../../components/input/Input.jsx";
 import { useHistory } from "react-router-dom";
 

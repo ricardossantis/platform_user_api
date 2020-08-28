@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import { Form, Button, Select } from "antd";
+import { Form, Button } from "antd";
 import { Link } from "react-router-dom";
+import Select from "react-select";
 
 export const Wave = styled.img`
   position: fixed;
@@ -33,23 +34,20 @@ export const ImgGoals = styled.img`
 `;
 
 export const LoginContainer = styled.div`
-
   display: flex;
   align-items: center;
   text-align: center;
 
-  .ant-select-selector{
-  height:55px !important;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  margin: 0 auto;
-};
-.ant-select-selection-item{
-  margin-top:30px;
-}
-
-
+  .ant-select-selector {
+    height: 55px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+  .ant-select-selection-item {
+    margin-top: 30px;
+  }
 `;
 
 export const StyledForm = styled(Form)`
@@ -122,6 +120,8 @@ export const StyledButton = styled(Button)`
 `;
 
 export const StyledSelect = styled(Select)`
-
-
-`
+  .css-g1d714-ValueContainer {
+    height: 55px;
+    justify-content: center;
+  }
+`;

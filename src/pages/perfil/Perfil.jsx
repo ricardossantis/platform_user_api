@@ -9,11 +9,11 @@ import {
   StyledForm,
   StyledButton,
   StyledModal,
+  StyledSelect,
 } from "./Perfil.js";
 import StylezedInput from "../../components/input/Input.jsx";
 import Api from "../../services/api.js";
 import { Input } from "antd";
-import Select from "react-select";
 import { message } from "antd";
 import profilePicMale from "../../assets/images/maleAvatar.svg";
 import profilePicFemale from "../../assets/images/femaleAvatar.svg";
@@ -155,7 +155,7 @@ function Perfil() {
           <StyledForm onFinish={onFinish}>
             <div>Select your avatar</div>
             <StyledForm.Item name="image_url">
-              <Select
+              <StyledSelect
                 value={selectedOption}
                 options={imageOptions}
                 onChange={handleSelectChange}
