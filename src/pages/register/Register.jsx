@@ -20,8 +20,11 @@ import {
   LinkA,
 } from "./Register";
 import StylezedInput from "../../components/input/Input.jsx";
+import { useHistory } from "react-router-dom";
 
 const Register = () => {
+  const history = useHistory();
+
   const imageOptions = [
     {
       value: "male",
@@ -61,6 +64,7 @@ const Register = () => {
       .post("users", apiObject)
       .then((res) => {
         info("Register successful");
+        history.push("/");
       })
       .catch((res) => {
         info("Register Failed");
@@ -123,7 +127,7 @@ const Register = () => {
               rules={[
                 { required: true, message: "Please type your Email!" },
                 {
-                  pattern: /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/gi,
+                  pattern: /^[a-zA-Z0-9_-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/gi,
                   message: "Email must be example@example.com",
                 },
               ]}
@@ -140,8 +144,8 @@ const Register = () => {
                   message: "Password must be at least 6 characters long",
                 },
                 {
-                  pattern: /(?=.*[}{,^?~=+\-_*\-+|!])/,
-                  message: "Must contain at least on special character",
+                  pattern: /(?=.*[}{,^?~=+\-_*\-+|!@#$%&-+¨´"'])/,
+                  message: "Must contain at least one special character",
                 },
               ]}
             />

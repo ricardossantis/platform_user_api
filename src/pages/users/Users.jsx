@@ -11,7 +11,7 @@ import { Button } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 import { useParams, useHistory, Link } from "react-router-dom";
 
-function Users() {
+function Users({ searchUsers }) {
   const [numItems, setNumItems] = useState(Array(12).fill(0));
   const [users, setUsers] = useState(Array(50).fill(""));
   const [totalUsers, setTotalUsers] = useState();
@@ -36,15 +36,17 @@ function Users() {
     history.push(`/users/${page}`);
   };
 
-  const handleSearch = (value) => {
-    handlePagination(1);
-    let filtered = totalUsers.filter((item) => {
-      if (item.name !== null && item.name.match(value) !== null) {
-        return true;
-      }
-    });
-    setUsers(filtered);
-  };
+  useEffect(() => {
+    if (totalUsers !== undefined) {
+      handlePagination(1);
+      let filtered = totalUsers.filter((item) => {
+        if (item.name !== null && item.name.match(searchUsers) !== null) {
+          return true;
+        }
+      });
+      setUsers(filtered);
+    }
+  }, [searchUsers]);
 
   const handlePageSize = (page, size) => {
     setNumItems(Array(size).fill(0));
@@ -53,21 +55,16 @@ function Users() {
 
   return (
     <BackGround>
-      <StyledSearch
-        placeholder="Insert user name"
-        onSearch={handleSearch}
-        enterButton={<Button icon={<SearchOutlined />} />}
-      />
       <StyledDiv>
         {users[0] !== "" &&
           numItems.map((item, indexItem) => {
             return (
               users[indexItem + pagination - 12] !== undefined && (
                 <Link
+                  key={indexItem}
                   to={`/feedbacks/${users[indexItem + pagination - 12].id}`}
                 >
                   <Card
-                    key={indexItem}
                     name={users[indexItem + pagination - 12].name}
                     user={users[indexItem + pagination - 12].user}
                     email={users[indexItem + pagination - 12].email}

@@ -14,7 +14,7 @@ function Logout() {
 
   return (
     <StyledButton onClick={handleLogout}>
-      <i class="fas fa-sign-out-alt"></i>
+      <i className="fas fa-sign-out-alt"></i>
     </StyledButton>
   );
 }
